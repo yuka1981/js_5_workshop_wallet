@@ -21,7 +21,11 @@ window.addEventListener("DOMContentLoaded", function () {
 
     let record = JSON.stringify({ uuid: uuid, date: fdate, amount: famount, description: fdesc })
 
-    console.log(record);
+    let records = JSON.parse(localStorage.getItem('records')) || [];
+
+    records.push(record);
+    localStorage.setItem('records', JSON.stringify(records));
+
     iform.reset();
 
 
